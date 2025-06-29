@@ -1,0 +1,38 @@
+# macOS
+.DS_Store
+
+# Windows
+Thumbs.db
+ehthumbs.db
+Desktop.ini
+
+# Linux
+*~
+
+# VSCodeやJetBrainsなどエディタ設定
+.vscode/
+.idea/
+*.sublime-workspace
+*.sublime-project
+
+# npmやyarnの依存ディレクトリ（使っていれば）
+node_modules/
+bower_components/
+
+# ログや一時ファイル
+*.log
+*.tmp
+
+# ビルド生成物（使っていれば）
+dist/
+build/
+
+# 環境変数や秘密情報
+.env
+.env.*
+
+# その他バックアップファイル
+*.bak
+*.swp
+*.swo
+
