@@ -1,0 +1,153 @@
+body {
+    font-family: 'Noto Sans JP', 'Meiryo', sans-serif;
+    background: #181818;
+    color: #fff;
+    margin: 0;
+    padding: 0;
+}
+
+/* h1を中央寄せでかっこよくし、ハートマークをアニメーション付きで追加 */
+h1 {
+    font-size: 2.2em;
+    margin-top: 1.2em;
+    margin-bottom: 0.8em;
+    color: #ff4081;
+    /* ピンク系のかっこいい色 */
+    letter-spacing: 0.15em;
+    text-align: center;
+    /* 中央寄せ */
+    font-weight: 900;
+    text-shadow: 0 2px 6px rgba(255, 64, 129, 0.6);
+    position: relative;
+    display: inline-block;
+    left: 50%;
+    transform: translateX(-50%);
+    padding-right: 38px;
+    /* ハートマーク分の余白 */
+}
+
+/* ハートマークをh1の後ろに擬似要素で追加 */
+h1::after {
+    content: '♥';
+    color: #ff1744;
+    font-size: 1.8em;
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    right: 0;
+    animation: heartbeat 1.5s infinite;
+}
+
+/* ハートマークのアニメーション */
+@keyframes heartbeat {
+    0%, 100% {
+        transform: translateY(-50%) scale(1);
+    }
+
+    50% {
+        transform: translateY(-50%) scale(1.3);
+    }
+}
+
+
+.button-list {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 12px;
+    max-width: 980px;
+    margin: 2em auto 20em auto;
+    padding: 0 10px;
+}
+
+.place-btn {
+    background: #222;
+    color: #fff;
+    border: 2px solid #333;
+    border-radius: 10px;
+    padding: 14px 24px;
+    font-size: 1.05rem;
+    margin: 4px 0;
+    cursor: pointer;
+    transition: background 0.2s, border-color 0.2s, color 0.2s, transform 0.1s;
+    min-width: 120px;
+    word-break: keep-all;
+    box-sizing: border-box;
+    line-height: 1.4;
+    font-weight: bold;
+    box-shadow: 0 2px 8px #0003;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.place-btn ruby {
+    font-size: 1em;
+}
+
+.place-btn rt {
+    font-size: 0.7em;
+    color: #ff4081;
+    letter-spacing: 0.1em;
+}
+
+.place-btn:hover,
+.place-btn:active {
+    background: #111;
+    border-color: #ff4081;
+    color: #ff4081;
+    transform: scale(1.04);
+}
+
+#map-container {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    max-width: 900px;
+    height: 300px;
+    background: #232323;
+    border-radius: 18px 18px 0 0;
+    box-shadow: 0 -2px 16px #000b;
+    padding: 12px 0 0 0;
+    z-index: 1000;
+    margin: 0 auto;
+    right: 0;
+    border-top: 2px solid #ff4081;
+    overflow: hidden;
+    /* ラベルがはみ出さないように */
+}
+
+#map-label {
+    position: absolute;
+    top: 16px;
+    right: 24px;
+    background: rgba(24, 24, 24, 0.85);
+    color: #ff4081;
+    font-size: 1.1em;
+    font-weight: bold;
+    padding: 6px 18px;
+    border-radius: 18px;
+    box-shadow: 0 2px 8px #0006;
+    pointer-events: none;
+    z-index: 10;
+    letter-spacing: 0.05em;
+}
+
+@media (max-width: 600px) {
+    h1 {
+        font-size: 1.6em;
+    }
+
+    #map-container {
+        height: 300px;
+        padding: 8px 0 0 0;
+    }
+
+    #map-label {
+        font-size: 0.95em;
+        top: 8px;
+        right: 10px;
+        padding: 4px 10px;
+    }
+}
